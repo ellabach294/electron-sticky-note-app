@@ -1,7 +1,7 @@
 const Plus = ({ color, onClick }) => {
     return (
         <div
-            className="w-12 h-12 flex items-center justify-center rounded-full cursor-pointer"
+            className="w-12 h-12 flex items-center justify-center rounded-full cursor-pointer shadow-lg"
             style={{ backgroundColor: color.colorHeader }}
             onClick={onClick}
         >

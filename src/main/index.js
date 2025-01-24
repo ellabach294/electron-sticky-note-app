@@ -1,14 +1,15 @@
 import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
+import { Notification } from 'electron'
 
 let mainWindow
 
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 400,
-    height: 300,
+    width: 450,
+    height: 350,
     show: false,
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
@@ -39,8 +40,8 @@ function createWindow() {
 
 function createNoteWindow(color) {
   const noteWindow = new BrowserWindow({
-    width: 400,
-    height: 300,
+    width: 600,
+    height: 400,
     autoHideMenuBar: true,
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
@@ -71,7 +72,6 @@ ipcMain.on('add-note', (event, color) => {
   }
 })
 
-
 app.whenReady().then(() => {
   electronApp.setAppUserModelId('com.electron.sticky-note')
   app.on('browser-window-created', (_, window) => {
@@ -85,7 +85,12 @@ app.whenReady().then(() => {
       createWindow();
     }
   })
+
+  if(Notification.isSupported()) {
+    new Notification({title: 'Sticky Note', body: 'Notifications are enabled!'}).show();
+  }
 })
+
 
 
 app.on('window-all-closed', () => {

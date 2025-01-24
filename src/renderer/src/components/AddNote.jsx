@@ -12,12 +12,12 @@ const AddNote = () => {
   }
 
   return (
-    <div className="fixed bottom-0 right-2 p-5 flex flex-col items-center gap-4">
-      <div className="flex flex-col gap-2 bg-white p-2 rounded-xl">
+    <div className="fixed bottom-0 right-2 p-2 flex flex-col items-center gap-4">
+      <div className="flex flex-col gap-2 bg-stone-50 p-2 rounded-xl shadow-sm">
         {colors.map((color) => (
           <button
           key={color.id}
-          className="w-8 h-8 rounded-full border-2 border-transparent cursor-pointer"
+          className="w-8 h-8 rounded-full border-2 border-transparent cursor-pointer shadow-sm"
           style={{
             backgroundColor: color.colorBody,
           }}
