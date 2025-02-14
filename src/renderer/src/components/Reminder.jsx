@@ -20,12 +20,12 @@ function Reminder({ onSetReminder }) {
         }
     }
     return (
-        <div className='mt-2 w-[85%]'>
+        <div className='mt-2 w-[80%]'>
             <label className='block text-sm font-medium mb-1'>Set Reminder</label>
             <div className='flex gap-2'>    
                 <input
                     type="date"
-                    className='border rounded p-1 w-full text-sm'
+                    className='border rounded p-1 w-full text-xs'
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
                 />

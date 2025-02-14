@@ -4,7 +4,7 @@ import NoteBody from "./components/NoteBody"
 function App() {
 
   return (
-    <div className="h-screen w-screen">
+    <div className="h-screen w-100">
       <AddNote />
       <NoteBody />
     </div>

@@ -8,9 +8,10 @@ let mainWindow
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
-    width: 450,
+    width: 400,
     height: 350,
     show: false,
+    icon: __dirname + '/resources/Icons/favicon.ico',
     autoHideMenuBar: true,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
@@ -19,8 +20,6 @@ function createWindow() {
       sandbox: false
     }
   })
-
-  mainWindow.setAlwaysOnTop(true, "screen")
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
@@ -40,8 +39,8 @@ function createWindow() {
 
 function createNoteWindow(color) {
   const noteWindow = new BrowserWindow({
-    width: 600,
-    height: 400,
+    width: 400,
+    height: 350,
     autoHideMenuBar: true,
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
@@ -56,15 +55,13 @@ function createNoteWindow(color) {
     noteWindow.loadFile(join(__dirname, '../renderer/index.html'))
   }
 
-  noteWindow.setAlwaysOnTop(true, "screen")
-
   noteWindow.webContents.on('did-finish-load', () => {
     noteWindow.webContents.send('color-update', color);
   });
 }
 
 ipcMain.on('add-note', (event, color) => {
-
+  
   if (!color || !color.colorBody) {
     return;
   } else {
@@ -90,8 +87,6 @@ app.whenReady().then(() => {
     new Notification({title: 'Sticky Note', body: 'Notifications are enabled!'}).show();
   }
 })
-
-
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {

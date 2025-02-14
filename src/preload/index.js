@@ -18,7 +18,7 @@ if (process.contextIsolated) {
         ipcRenderer.on('color-update', (_, color) => {
           callback(color)
         })
-      },
+      }
     })
   } catch (error) {
     console.error(error)

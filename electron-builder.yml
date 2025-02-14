@@ -1,5 +1,5 @@
 appId: com.electron.app
-productName: sticky-app
+productName: Sticky App
 directories:
   buildResources: build
 files:
@@ -40,3 +40,4 @@ npmRebuild: false
 publish:
   provider: generic
   url: https://example.com/auto-updates
+icon: build/icons/icon.png
