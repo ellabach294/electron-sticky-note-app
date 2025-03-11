@@ -1,6 +1,8 @@
-# sticky-app
+# Sticky App
 
-An Electron application with React
+An Electron application with React 
+
+![Sticky App build with Electron + Vite](screenshot.png)
 
 ## Recommended IDE Setup
 
